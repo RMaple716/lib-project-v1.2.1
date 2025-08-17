@@ -1,0 +1,85 @@
+0 verbose cli D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node.exe D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\联想\AppData\Local\Microsoft\TypeScript\5.8\.npmrc
+5 silly config load:file:C:\Users\联想\.npmrc
+6 silly config load:file:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_global\etc\npmrc
+7 verbose title npm install types-registry@latest
+8 verbose argv "install" "--ignore-scripts" "types-registry@latest"
+9 verbose logfile logs-max:10 dir:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-20T12_35_36_164Z-
+10 verbose logfile D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-20T12_35_36_164Z-debug-0.log
+0 verbose cli D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node.exe D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\npmrc
+4 silly config load:file:c:\Users\联想\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\.npmrc
+5 silly config load:file:C:\Users\联想\.npmrc
+6 silly config load:file:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_global\etc\npmrc
+7 verbose title npm install @hint/configuration-development@latest hint@latest typescript@latest
+8 verbose argv "install" "@hint/configuration-development@latest" "hint@latest" "typescript@latest" "--save-dev" "--loglevel" "verbose"
+9 verbose logfile logs-max:10 dir:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-20T12_35_36_164Z-
+10 verbose logfile D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-20T12_35_36_164Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+11 silly logfile start cleaning logs, removing 1 files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly logfile done cleaning log files
+13 silly logfile done cleaning log files
+14 silly packumentCache corgi:https://registry.npm.taobao.org/types-registry cache-miss
+14 silly packumentCache corgi:https://registry.npm.taobao.org/@hint%2fconfiguration-development cache-miss
+15 silly packumentCache corgi:https://registry.npm.taobao.org/hint cache-miss
+16 silly packumentCache corgi:https://registry.npm.taobao.org/typescript cache-miss
+17 http fetch GET https://registry.npm.taobao.org/typescript attempt 1 failed with CERT_HAS_EXPIRED
+18 http fetch GET https://registry.npm.taobao.org/@hint%2fconfiguration-development attempt 1 failed with CERT_HAS_EXPIRED
+19 http fetch GET https://registry.npm.taobao.org/hint attempt 1 failed with CERT_HAS_EXPIRED
+15 http fetch GET https://registry.npm.taobao.org/types-registry attempt 1 failed with CERT_HAS_EXPIRED
+20 http fetch GET https://registry.npm.taobao.org/hint attempt 2 failed with CERT_HAS_EXPIRED
+16 http fetch GET https://registry.npm.taobao.org/types-registry attempt 2 failed with CERT_HAS_EXPIRED
+21 http fetch GET https://registry.npm.taobao.org/typescript attempt 2 failed with CERT_HAS_EXPIRED
+22 http fetch GET https://registry.npm.taobao.org/@hint%2fconfiguration-development attempt 2 failed with CERT_HAS_EXPIRED
+23 http fetch GET https://registry.npm.taobao.org/typescript attempt 3 failed with CERT_HAS_EXPIRED
+17 http fetch GET https://registry.npm.taobao.org/types-registry attempt 3 failed with CERT_HAS_EXPIRED
+24 http fetch GET https://registry.npm.taobao.org/hint attempt 3 failed with CERT_HAS_EXPIRED
+25 verbose type system
+26 verbose stack FetchError: request to https://registry.npm.taobao.org/typescript failed, reason: certificate has expired
+26 verbose stack     at ClientRequest.<anonymous> (D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+26 verbose stack     at ClientRequest.emit (node:events:518:28)
+26 verbose stack     at emitErrorEvent (node:_http_client:104:11)
+26 verbose stack     at _destroy (node:_http_client:898:9)
+26 verbose stack     at onSocketNT (node:_http_client:918:5)
+26 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+27 error code CERT_HAS_EXPIRED
+28 error errno CERT_HAS_EXPIRED
+29 error request to https://registry.npm.taobao.org/typescript failed, reason: certificate has expired
+30 silly unfinished npm timer reify 1747744548421
+31 silly unfinished npm timer reify:loadTrees 1747744548422
+32 silly unfinished npm timer idealTree:userRequests 1747744548434
+18 verbose type system
+19 verbose stack FetchError: request to https://registry.npm.taobao.org/types-registry failed, reason: certificate has expired
+19 verbose stack     at ClientRequest.<anonymous> (D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+19 verbose stack     at ClientRequest.emit (node:events:518:28)
+19 verbose stack     at emitErrorEvent (node:_http_client:104:11)
+19 verbose stack     at _destroy (node:_http_client:898:9)
+19 verbose stack     at onSocketNT (node:_http_client:918:5)
+19 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+20 error code CERT_HAS_EXPIRED
+33 verbose cwd c:\Users\联想\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools
+34 verbose os Windows_NT 10.0.26100
+35 verbose node v22.14.0
+36 verbose npm  v10.9.2
+37 verbose exit 1
+38 verbose code 1
+39 error A complete log of this run can be found in: D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-20T12_35_36_164Z-debug-0.log
+21 error errno CERT_HAS_EXPIRED
+22 error request to https://registry.npm.taobao.org/types-registry failed, reason: certificate has expired
+23 silly unfinished npm timer reify 1747744548421
+24 silly unfinished npm timer reify:loadTrees 1747744548422
+25 silly unfinished npm timer idealTree:userRequests 1747744548434
+26 verbose cwd C:\Users\联想\AppData\Local\Microsoft\TypeScript\5.8
+27 verbose os Windows_NT 10.0.26100
+28 verbose node v22.14.0
+29 verbose npm  v10.9.2
+30 verbose exit 1
+31 verbose code 1
+32 error A complete log of this run can be found in: D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-20T12_35_36_164Z-debug-0.log

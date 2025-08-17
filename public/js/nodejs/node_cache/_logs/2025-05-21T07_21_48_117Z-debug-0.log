@@ -1,0 +1,53 @@
+0 verbose cli D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node.exe D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\npmrc
+4 silly config load:file:c:\Users\联想\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\.npmrc
+5 silly config load:file:C:\Users\联想\.npmrc
+6 silly config load:file:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_global\etc\npmrc
+7 verbose title npm install @hint/configuration-development@latest hint@latest typescript@latest
+8 verbose argv "install" "@hint/configuration-development@latest" "hint@latest" "typescript@latest" "--save-dev" "--loglevel" "verbose"
+9 verbose logfile logs-max:10 dir:D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-21T07_21_48_117Z-
+10 verbose logfile D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-21T07_21_48_117Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly logfile done cleaning log files
+14 silly packumentCache corgi:https://registry.npm.taobao.org/@hint%2fconfiguration-development cache-miss
+15 silly packumentCache corgi:https://registry.npm.taobao.org/hint cache-miss
+16 silly packumentCache corgi:https://registry.npm.taobao.org/typescript cache-miss
+17 http fetch GET https://registry.npm.taobao.org/@hint%2fconfiguration-development attempt 1 failed with ENOTFOUND
+18 http fetch GET https://registry.npm.taobao.org/hint attempt 1 failed with ENOTFOUND
+19 http fetch GET https://registry.npm.taobao.org/typescript attempt 1 failed with ENOTFOUND
+20 http fetch GET https://registry.npm.taobao.org/@hint%2fconfiguration-development attempt 2 failed with ENOTFOUND
+21 http fetch GET https://registry.npm.taobao.org/hint attempt 2 failed with ENOTFOUND
+22 http fetch GET https://registry.npm.taobao.org/typescript attempt 2 failed with ENOTFOUND
+23 http fetch GET https://registry.npm.taobao.org/@hint%2fconfiguration-development attempt 3 failed with ENOTFOUND
+24 http fetch GET https://registry.npm.taobao.org/hint attempt 3 failed with ENOTFOUND
+25 http fetch GET https://registry.npm.taobao.org/typescript attempt 3 failed with ENOTFOUND
+26 verbose type system
+27 verbose stack FetchError: request to https://registry.npm.taobao.org/@hint%2fconfiguration-development failed, reason: getaddrinfo ENOTFOUND registry.npm.taobao.org
+27 verbose stack     at ClientRequest.<anonymous> (D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+27 verbose stack     at ClientRequest.emit (node:events:518:28)
+27 verbose stack     at emitErrorEvent (node:_http_client:104:11)
+27 verbose stack     at _destroy (node:_http_client:898:9)
+27 verbose stack     at onSocketNT (node:_http_client:918:5)
+27 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+28 error code ENOTFOUND
+29 error syscall getaddrinfo
+30 error errno ENOTFOUND
+31 error network request to https://registry.npm.taobao.org/@hint%2fconfiguration-development failed, reason: getaddrinfo ENOTFOUND registry.npm.taobao.org
+32 error network This is a problem related to network connectivity.
+32 error network In most cases you are behind a proxy or have bad network settings.
+32 error network
+32 error network If you are behind a proxy, please make sure that the
+32 error network 'proxy' config is set properly.  See: 'npm help config'
+33 silly unfinished npm timer reify 1747812121734
+34 silly unfinished npm timer reify:loadTrees 1747812121736
+35 silly unfinished npm timer idealTree:userRequests 1747812121750
+36 verbose cwd c:\Users\联想\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools
+37 verbose os Windows_NT 10.0.26100
+38 verbose node v22.14.0
+39 verbose npm  v10.9.2
+40 verbose exit 1
+41 verbose code 1
+42 error A complete log of this run can be found in: D:\桌面\git-demo\.vscode\JavaScript_Project\nodejs\node_cache\_logs\2025-05-21T07_21_48_117Z-debug-0.log
