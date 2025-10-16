@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/adminstyle.css">
+</head>
+<body>
+    <div id="viewport">
+        <!--侧边栏-->
+        <div id="sidebar">
+            <header>
+                <a href="#">图书管理系统</a>
+            </header>
+            <ul class="nav">
+                <li>
+                    <a href="#" data-target="home">
+                        主页
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-target="book_admin">
+                        图书管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-target="user_admin">
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-target="booktype_admin">
+                        图书分类管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-target="booklend_message">
+                        图书借阅归还
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-target="announcement_admin">
+                        公告管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-target="logout">
+                        退出登录
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!--内容区域-->
+        <div id="content">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">欢迎您，管理员</a>
+                        </li>
+                        <li>
+                            <img src="../images/管理员.png" alt="管理员头像">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <!--主页-->
+                <div id="home" class="page">
+                    <h1 class="home-title">管理员，您好！</h1>
+                    <div class="home-info">
+                        <p>当前共有 <span id="bookCount">0</span> 本图书</p>
+                        <p>当前共有 <span id="readerCount">0</span> 位读者</p>
+                    </div>
+                </div>
+
+                <!--图书管理-->
+                <div id="book_admin" class="page">
+                    <h1 class="book-search-title">图书管理</h1>
+                    <form class="search-form">
+                        <select id="searchType" class="search-select">
+                            <option value="_book_name">书名</option>
+                            <option value="_author">作者</option>
+                            <option value="_isbn">ISBN号</option>
+                            <option value="_type_name">图书类型</option>
+                        </select>
+                        <input type="text" id="searchInput" class="search-input" placeholder="请输入查询内容">
+                        <button type="button" class="search-button" id="searchButton">查询</button>
+                        <button type="button" class="addBookModal">添加图书</button>
+                    </form>
+
+                    <!-- 添加/编辑图书弹窗 -->
+                    <div id="addBookModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h2>添加图书</h2>
+                            <form>
+                                <label for="bookTitle">书名：</label>
+                                <input type="text" id="bookTitle" name="bookTitle" placeholder="请输入书名">
+                                <label for="author">作者：</label>
+                                <input type="text" id="author" name="author" placeholder="请输入作者">
+                                <label for="isbn">ISBN号：</label>
+                                <input type="text" id="isbn" name="isbn" placeholder="请输入ISBN号">
+                                <label for="bookType">图书类型：</label>
+                                <select id="bookType" name="bookType">
+                                    <!-- JS动态插入分类选项 -->
+                                </select>
+                                <label for="publisher">出版社：</label>
+                                <input type="text" id="publisher" name="publisher" placeholder="请输入出版社">
+                                <label for="totalQuantity">总数量：</label>
+                                <input type="number" id="totalQuantity" name="totalQuantity" placeholder="请输入总数量">
+                                <button type="submit" class="submit-button">提交</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--图书管理表格-->
+                    <table class="book_table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>图书类型</th>
+                                <th>书名</th>
+                                <th>作者</th>
+                                <th>ISBN号</th>
+                                <th>出版社</th>
+                                <th>总数量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--动态插入数据-->
+                        </tbody>
+                    </table>
+
+                    <!--分页功能-->
+                    <div class="pagination">
+                        <span class="total-pages">共10页</span>
+                        <span class="page-numbers">
+                            <!--页码动态生成-->
+                        </span>
+                    </div>
+                </div> 
+
+                <!--用户管理-->
+                <div id="user_admin" class="page">
+                    <h1 class="user-search-title">用户查询</h1>
+                    
+                    <!-- 添加用户弹窗 -->
+                    <div id="addUserModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h2>添加用户</h2>
+                            <form>
+                                <label for="account">账号：</label>
+                                <input type="text" id="account" name="account" placeholder="请输入账号">
+                                <label for="name">姓名：</label>
+                                <input type="text" id="name" name="name" placeholder="请输入姓名">
+                                <label for="password">密码：</label>
+                                <input type="password" id="password" name="password" placeholder="请输入密码">
+                                <label for="email">邮箱：</label>
+                                <input type="email" id="email" name="email" placeholder="请输入邮箱">
+                                <label for="borrowedCount">已借阅数量：</label>
+                                <input type="number" id="borrowedCount" name="borrowedCount">
+                                <button type="submit" class="submit-button">提交</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <form class="user-search-form">
+                        <select id="userSearchType" class="user-search-select">
+                            <option value="_account">账号</option>
+                            <option value="_name">姓名</option>
+                            <option value="_email">邮箱</option>
+                        </select>
+                        <input type="text" id="userSearchInput" class="user-search-input" placeholder="请输入查询内容">
+                        <button type="button" class="search-button" id="userSearchButton">查询</button>
+                        <button type="button" class="addUserButton">添加用户</button>
+                    </form>
+
+                    <!--用户管理表格-->
+                    <table class="user_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>账号</th>
+                                <th>姓名</th>
+                                <th>密码</th>
+                                <th>邮箱</th>
+                                <th>已借阅数量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--动态插入数据-->
+                        </tbody>
+                    </table>
+
+                    <!--分页功能-->
+                    <div class="pagination">
+                        <span class="total-pages">共10页</span>
+                        <span class="page-numbers">
+                            <!--页码动态生成-->
+                        </span>
+                    </div>
+                </div>
+
+                <!--图书分类管理-->
+                <div id="booktype_admin" class="page">
+                    <h1 class="category-title">图书分类管理</h1>
+                    <button type="button" class="addCategoryButton">添加分类</button>
+
+                    <!-- 添加分类弹窗 -->
+                    <div id="addCategoryModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h2 id="modalTitle">添加分类</h2>
+                            <form id="categoryForm">
+                                <label for="categoryId">分类ID:</label>
+                                <input type="text" id="categoryId" name="categoryId" required>
+                                <label for="categoryName">分类名称:</label>
+                                <input type="text" id="categoryName" name="categoryName" required>
+                                <button type="button" class="submit-button">提交</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--图书分类表格-->
+                    <table class="category_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>图书分类名称</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--动态插入数据-->
+                        </tbody>
+                    </table>
+
+                    <!--分页功能-->
+                    <div class="pagination">
+                        <span class="total-pages">共10页</span>
+                        <span class="page-numbers">
+                            <!--页码动态生成-->
+                        </span>
+                    </div>
+                </div>
+
+                <!--图书借阅归还-->
+                <div id="booklend_message" class="page">
+                    <h1 class="lend-title">图书借阅与归还</h1>
+
+                    <!--图书借阅与归还表格-->
+                    <table class="lend_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>图书名称</th>
+                                <th>读者姓名</th>
+                                <th>借阅日期</th>
+                                <th>归还日期</th>
+                                <th>借阅状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--动态插入数据-->
+                        </tbody>
+                    </table>
+
+                    <div id="delayModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h2>延期归还</h2>
+                            <form>
+                                <label for="newReturnDate">新的归还日期：</label>
+                                <input type="date" id="newReturnDate" name="newReturnDate">
+                                <button type="submit" class="submit-button">提交</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--分页功能-->
+                    <div class="pagination">
+                        <span class="total-pages">共10页</span>
+                        <span class="page-numbers">
+                            <!--页码动态生成-->
+                        </span>
+                    </div>
+                </div>
+
+                <!--公告管理-->
+                <div id="announcement_admin" class="page">
+                    <h1 class="announcement-title">公告管理</h1>
+                    <button type="button" class="addAnnouncementButton">添加公告</button>
+
+                    <!-- 添加/编辑公告弹窗 -->
+                    <div id="addAnnouncementModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h2>添加公告</h2>
+                            <form>
+                                <label for="announcementTitle">标题：</label>
+                                <input type="text" id="announcementTitle" name="announcementTitle" placeholder="请输入公告标题">
+                                <label for="announcementContent">内容：</label>
+                                <textarea id="announcementContent" name="announcementContent" rows="4" placeholder="请输入公告内容"></textarea>
+                                <button type="submit" class="submit-button">提交</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- 公告表格 -->
+                    <table class="announcement_table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>内容</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 动态插入数据 -->
+                        </tbody>
+                    </table>
+
+                    <!-- 分页功能 -->
+                    <div class="pagination">
+                        <span class="total-pages">共10页</span>
+                        <span class="page-numbers">
+                            <!-- 页码动态生成 -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/adminscript.js"></script>
+</body>
+</html>
