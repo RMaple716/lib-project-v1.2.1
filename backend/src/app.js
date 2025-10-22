@@ -22,10 +22,6 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// 其他路由和中间件
-
-
-//console.log("here1.");
 // 中间件配置
 app.use(bodyParser.json())
 // 允许所有来源访问（仅限开发环境）
@@ -42,7 +38,7 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, hostname, () => {
   console.log(`Server running on port ${PORT}`)
 })
-//console.log("here2.");
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
@@ -53,13 +49,12 @@ const logger = winston.createLogger({
     new winston.transports.Console()
   ]
 });
-//console.log("here3.");
+
 // 请求日志中间件
 app.use((req, res, next) => {
   logger.info(`Received ${req.method} request for '${req.url}'`);
   next();
 });
-
 
 // 添加认证路由
 const authRouter = require('./routes/auth')
@@ -67,6 +62,6 @@ app.use('/api/auth', authRouter)
 
 const pageRouter= require('./routes/page')
 app.use('/api/page', pageRouter)
-//console.log("here4.");
+
 
 
