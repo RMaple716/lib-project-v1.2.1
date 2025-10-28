@@ -34,7 +34,7 @@ app.use(session({
 //2.用户注册
 router.post('/register', async (req, res) => {
   console.log('注册接口被调用');
-  const{account, name, email, userType, password } = req.body;
+  const{account, name, email, usertype, password } = req.body;
 
   // 密码复杂度校验
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/;
@@ -58,7 +58,7 @@ router.post('/register', async (req, res) => {
     
     if (existResult.length > 0) 
     {
-        console.log('用户已存在');
+        console.log('用户已存在');//toast消息
         return res.status(400).json
         ({ 
             code:4001,
@@ -72,13 +72,13 @@ router.post('/register', async (req, res) => {
     (
       `INSERT INTO t_user (_name, _password, _account, _email, _role) 
        VALUES ($1, $2, $3, $4, $5) 
-       RETURNING _name, _password, _account, _email, _role`,
-      [name, hashedPassword,account,email,userType]
+       RETURNING _name, _password, _account, _email, _utype`,
+      [name, hashedPassword,account,email,usertype]
     )
      return res.status(200).json
      ({ 
         message: '注册成功，请登录。',
-        role: newuser[0]._role
+        usertype: newuser[0]._usertype
       })
   } 
   catch (err) 
@@ -96,24 +96,23 @@ router.put('/login', async (req, res) => {
   console.log("登录接口被调用。");
   const useraccount  = req.body.account
   const userpassword = req.body.password
-  const userrole = req.body.role
-  //console.log(useraccount,userpassword,userrole);
+  const usertype = req.body.utype
 
   try {
     const { rows:userResult } = await pool.query
     (
-      'SELECT * FROM t_user WHERE _account = $1 AND _role = $2',
-      [useraccount, userrole]
+      'SELECT * FROM t_user WHERE _account = $1 AND _utype = $2',
+      [useraccount, usertype]
     )
   if(userResult.length === 0)
   {
-      console.log("用户不存在");
+      console.log("用户不存在");//加toast消息（改动）
       return res.status(400).json({
         code:4002,
         message: '用户不存在,请检查账号输入是否正确。'
       })
   }
-   // console.log(userResult.rows[0]);
+
 
   if (userResult.length == 0 || !await bcrypt.compare(userpassword, userResult[0]._password)) {
         return res.status(400).json({
@@ -126,7 +125,7 @@ router.put('/login', async (req, res) => {
       return res.status(200).json({ 
           code:2001,
           message: '登录成功', 
-          role: user._role
+          usertype: user._utype
       })
   }
   } catch (error) {
