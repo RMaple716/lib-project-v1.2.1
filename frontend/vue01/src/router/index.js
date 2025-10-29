@@ -17,7 +17,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/user-portal',
+    name: 'user-portal',
+    // 用户中心页面使用现有的 test.vue（UserPortal）
+    component: () => import(/* webpackChunkName: "user-portal" */ '../views/test.vue')
   }
+
 ]
 
 const router = new VueRouter({
