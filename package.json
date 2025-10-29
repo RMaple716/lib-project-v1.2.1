@@ -6,9 +6,9 @@
     "frontend/lib-project-v1.2.1/frontend/vue01"
   ],
   "scripts": {
-    "serve": "cd frontend/lib-project-v1.2.1/frontend/vue01 && npm run serve",
-    
-    "install-deps": "cd frontend/lib-project-v1.2.1/frontend/vue01 && npm install --legacy-peer-deps",
-    "build": "cd frontend/lib-project-v1.2.1/frontend/vue01 && npm run build"
+    "serve": "cd readers && npm run serve",
+
+    "install-deps": "cd readers && npm install --legacy-peer-deps",
+    "build": "cd readers && npm run build"
   }
 }

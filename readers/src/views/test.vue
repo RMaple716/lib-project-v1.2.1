@@ -12,11 +12,11 @@
         </div>
         <div class="form-group">
           <input type="password" v-model="loginPassword" placeholder=" " required>
-          <label>密码2</label>
+          <label>密码</label>
         </div>
         <div class="form-group">
           <select v-model="loginUserType">
-            <option value="reader">普通用户123</option>
+            <option value="reader">普通用户</option>
             <option value="admin">管理员</option>
           </select>
         </div>
