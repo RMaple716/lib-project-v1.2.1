@@ -1,0 +1,9 @@
+{
+  // Make ESLint run relative to the Vue subproject so editor uses the correct node_modules
+  "eslint.workingDirectories": [
+    { "mode": "auto" },
+    "frontend/lib-project-v1.2.1/frontend/vue01"
+  ],
+  // If schema download errors appear often in your environment, you can disable them here
+  "json.schemaDownload.enable": false
+}
