@@ -14,8 +14,8 @@ pager.use(session({
     cookie: { secure: false }
 }));
 
-// 3.获取图书信息
-router.get('/books', async (req, res) => {
+// 3.获取未筛选的图书信息
+router.get('/books', async (res) => {
   console.log('获取图书接口被调用');
   try {
     console.log('尝试获取图书列表');
@@ -27,8 +27,7 @@ router.get('/books', async (req, res) => {
       ORDER BY _bid ASC`
     );
     console.log('获取图书列表完毕');
-    //console.table("rows",booklist);
-  
+
     if(booklist.length === 0){
       return res.status(400).json({
         message: '没有找到图书'
@@ -151,7 +150,7 @@ router.get('/r_history',async (req, res) => {
   }
 })
 
-//4.搜索指定图书信息
+//4.搜索指定图书信息(需要大改)
 router.get('/search', async (req, res) => {
   //console.log('查询图书接口被调用');
   const q=req.query.query;
