@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
           <select v-model="loginUserType">
-            <option value="reader">普通用户</option>
+            <option value="reader">普通用户123</option>
             <option value="admin">管理员</option>
           </select>
         </div>
