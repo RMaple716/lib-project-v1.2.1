@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <router-link to="/manager">图书管理员</router-link>
+      <router-link to="/test">读者</router-link>
     </nav>
     <router-view/>
   </div>
